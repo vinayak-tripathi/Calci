@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculator</title>
+	<link rel="icon" href="C:\Users\DELL\Pictures\Saved Pictures\vt.png">
+	<link rel="stylesheet" href="css/mat.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script language=javascript>
+		var r=document.getElementById("r1").value;
+        var c=document.getElementById("c1").value;
+		function getInputValue(){
+			var inputVal = document.getElementById("c1").value;
+			document.getElementById("r2").value=inputVal;
+		}
+		function create() {
+                var s= "";
+                var r=document.getElementById("r1").value;
+                var c=document.getElementById("c1").value
+				document.getElementById("mat1").style.display="inline-block";
+                s+='<h1 align="center">Matrix1</h1><table>';
+                for(var i = 0; i < r; i++){
+                    s+='<tr>'
+                    for (var j=0;j<c;j++){
+                    s+='<td><input type="number" class="t" id="one'+i+j+'"></td>';
+                    }
+                    s+='</tr>'
+
+                }
+				document.getElementById("mat2").style.display="inline-block";
+                s+='</table>'
+                document.getElementById("mat1").innerHTML=s;
+				var s= "";
+                var r=document.getElementById("r2").value;
+                var c=document.getElementById("c2").value
+                s+='<h1 align="center">Matrix2</h1><table>';
+                for(var i = 0; i < r; i++){
+                    s+='<tr>'
+                    for (var j=0;j<c;j++){
+                    s+='<td><input type="number" class="t" id="two'+i+j+'"></td>';
+                    }
+                    s+='</tr>'
+
+                }
+                s+='</table>'
+                document.getElementById("mat2").innerHTML=s;
+        }
+		function wr(v){
+            var r1=document.getElementById("r1").value;
+            var c1=document.getElementById("c1").value;
+			var mat1=[],mat2=[],mul=[]
+            for(var i = 0; i < r1; i++){
+                var a=[]
+				for (var j=0;j<c1;j++){
+                var na="one"+i+j+""
+                var s=document.getElementById(na).value;
+                a.push(parseFloat(s))//here
+            }
+            mat1.push(a)                
+            }
+			var r2=document.getElementById("r2").value;
+            var c2=document.getElementById("c2").value;
+            for(var i = 0; i < r2; i++){
+                var a=[]
+				for (var j=0;j<c2;j++){
+                var na="two"+i+j+""
+                var s=document.getElementById(na).value;
+                a.push(parseFloat(s))//here also
+            }
+            mat2.push(a)                
+			}
+			var t='<table class=ans>'
+						for(var i = 0; i < r1; i++){
+						t+='<tr>'
+						for (var j=0;j<c1;j++){
+							t+='<td>'+mat1[i][j]+'</td>'  }
+							t+='</tr>'
+					}  
+					t+='</table>' 
+			document.getElementById("o-mat1").innerHTML=t
+			var t='<table class=ans>'
+						for(var i = 0; i < r2; i++){
+						t+='<tr>'
+						for (var j=0;j<c2;j++){
+							t+='<td>'+mat2[i][j]+'</td>'  }
+							t+='</tr>'
+					}  
+					t+='</table>' 
+			document.getElementById("o-mat2").innerHTML=t
+			document.getElementById("eq").innerHTML='='
+			if(v=="m"){
+				document.getElementById("op").innerHTML='X'
+				if(r2==c1){
+					for(var i=0;i<r1;i++){
+						var a=[]
+						for(var j=0;j<c2;j++){
+							var c=0;
+							for(var k=0;k<c1;k++){
+								c+=mat1[i][k]*mat2[k][j];
+							}
+							a.push(c)
+						}
+						mul.push(a)
+					}
+					var t='<table class=ans>'
+						for(var i = 0; i < r1; i++){
+						t+='<tr>'
+						for (var j=0;j<c2;j++){
+							t+='<td>'+mul[i][j]+'</td>'  }
+							t+='</tr>'
+					}  
+					t+='</table>' 
+					document.getElementById("res").innerHTML=t
+				
+				}
+				else{
+					document.getElementById("res").innerHTML="<b><i>The matrices cannot be multiplied</i></b>"
+					
+				}	
+			}
+			else if(v=="a"){
+				document.getElementById("op").innerHTML='+'
+				if((r1==r2)&&(c1==c2)){
+					for(var i=0;i<r1;i++){
+						a=[]
+						for(var j=0;j<c2;j++){
+							s=mat1[i][j]+mat2[i][j]
+							a.push(s)
+							}
+							mul.push(a)
+					}
+						var t='<table class=ans">'
+						for(var i = 0; i < r1; i++){
+						t+='<tr>'
+						for (var j=0;j<c2;j++){
+							t+='<td>'+mul[i][j]+'</td>'  }
+							t+='</tr>'
+					}  
+					t+='</table>' 
+					document.getElementById("res").innerHTML=t
+				
+				}
+				else{
+					document.getElementById("res").innerHTML="<p style='padding:20px;'><b><i>The matrices cannot be multiplied</i></b>";	
+				}	
+			}
+			else if(v=="s"){
+				document.getElementById("op").innerHTML='-'
+				if((r1==r2)&&(c1==c2)){
+					for(var i=0;i<r1;i++){
+						a=[]
+						for(var j=0;j<c2;j++){
+							s=mat1[i][j]-mat2[i][j]
+							a.push(s)
+							}
+							mul.push(a)
+					}
+						var t='<table class=ans>'
+						for(var i = 0; i < r1; i++){
+						t+='<tr>'
+						for (var j=0;j<c2;j++){
+							t+='<td>'+mul[i][j]+'</td>'  }
+							t+='</tr>'
+					}  
+					t+='</table>' 
+					document.getElementById("res").innerHTML=t
+				
+				}
+				else{
+					document.getElementById("res").innerHTML="<p style='padding:20px;'><b><i>The matrices cannot be multiplied</i></b>";	
+				}	
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<header>
+
+	</header>
+	<div class='links'>
+		<ul style="list-style-type:none;">
+			<li><a href="mat-mul.html" class="active">Matrix Calculator</a></li>
+			<li><a href="calculator.html">Simple Calculator</a></li>
+			<li><a href="s-calculator.html">Scientific Calculator</a></li>
+            <li><a href="p-calculator.html">Programmer Calculator</a></li>
+            <li><a href="e-calculator.html">Equation Solver</a></li>
+		</ul>
+	</div>
+	<div class='main'>
+	<div class="in">
+		<table>
+			<tr>
+				<td></td>
+				<td>Row</td>
+				<td>Column</td>
+			</tr>
+			<tr>
+				<td>Matrix1</td>
+				<td><input type="number" class='t' id=r1 max=10 min=1></td>
+				<td><input type="number" class='t' id=c1 max=10 min=1 onblur="getInputValue()"></td>
+			</tr>
+			<tr>
+				<td>Matrix2</td>
+				<td><input type="number" class='t' id=r2 max=10 min=1></td>
+				<td><input type="number" class='t' id=c2 max=10 min=1></td>
+			</tr>
+			<tr><td colspan="3"><input type="button" value='Generate Table' class="but" id='myBtn'></td></tr>
+		</table>
+	</div>
+	<br>
+	<br>
+	<div style="border:none;" class=modal id='myModal'>
+		<div class=modalcontent>
+			<span class="close"></span>
+			<table>
+				<tr>
+					<td><div id="mat1"></div>
+					<td><div id="mat2"></div>
+				</tr>
+				<tr>
+				<table style="margin:0px auto;">
+					<tr>
+						<td><input type="button" class="button" id="add" value="Add"></td>
+						<td><input type="button" class="button" onclick="wr()" id="sub" value="Subtract"></td>
+					</tr>
+					<tr>
+						<td><input type="button" class="button" value="Multiply" id="mul"></td>
+						<td><input type="button" class="button" onclick="wr()" value="Scalar Multiplication"></td>
+					</tr>
+					<tr>
+						<td><input type="button" class="button" onclick="clear()" value="Clear"></td>
+					</tr>
+				</table>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="out" style="border:none;">
+		<table><tr>
+		<td><div id="o-mat1" style="border:none;"></div></td>
+		<td><div id="op" style="border:none;font-size: 30px;font-family: Arial, Helvetica, sans-serif;"></div></td>
+		<td><div id="o-mat2"style="border:none;"></div></td>
+		<td><div style="border:none;font-size: 30px;font-family: Arial, Helvetica, sans-serif;" id="eq"></div></td>
+		<td><div id="res" style="border: none;"></div></td>
+	</tr></table>
+	</div>
+	</div>
+		<script>
+			var modal = document.getElementById("myModal");
+			var btn = document.getElementById("myBtn");
+			var mul=document.getElementById("mul");
+			var add=document.getElementById("add");
+			var sub=document.getElementById("sub");
+			var span = document.getElementsByClassName("close")[0];
+			btn.onclick = function() {
+				modal.style.display = "block";
+				create();
+			}
+			mul.onclick=function(){
+				wr("m");
+				modal.style.display = "none";
+			}
+			add.onclick=function(){
+				wr("a");
+				modal.style.display = "none";
+			}
+			sub.onclick=function(){
+				wr("s");
+				modal.style.display = "none";
+			}
+			span.onclick = function() {
+			modal.style.display = "none";
+			}
+			window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+			}
+		</script>
+	<footer>
+		<div style="border: none;color: rgb(192, 2, 33);font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Created by<a href="https://github.com/vinayak-tripathi" style="background-color: transparent;color: tomato;font-size:25px" target="_blank"><i class="fa fa-github"></i>VT</a></div>
+	</footer>
+</body>
+</html>
