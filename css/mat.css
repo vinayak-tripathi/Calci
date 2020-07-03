@@ -6,9 +6,9 @@ body{
     background: rgba(238, 214, 173, 0.562);
 }
 header{
-    background:blue;
+    background:blueviolet;
     height:80px;
-    width:100%;
+    min-width:1000px;
 }
 h1{
     font-family: Arial, Helvetica, sans-serif ;
