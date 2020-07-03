@@ -3,27 +3,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Calculator</title>
-	<link rel="icon" href="C:\Users\DELL\Pictures\Saved Pictures\vt.png">
+	<link rel="icon" href="css/vt.png">
 	<link rel="stylesheet" href="css/mat.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script>
-		function insert(num){
-			form.display.value=form.display.value+num
-
-		}
-		function c(){
-			form.display.value=""
-		}
-		function equal(){
-			var inp=form.display.value
-			if(inp!=""){
-			form.display.value=eval(inp)}
-		}
-		function back(){
-			var inp=form.display.value
-			form.display.value=inp.substring(0,inp.length-1)
-		}
-	</script>
+	<script src='Javascript/calculator.js'></script>
 <style>
 .button{
 	width:50px;
@@ -35,25 +18,12 @@
 	background:#607d8b;
 	border:none;
 }
-.text{
-	width:250px;
-	height: 50px;
-	font-size: 25px;
-	border: solid 2px black;
-	text-align: center;
-}
-.keypad{
-	position:absolute;
-	transform:translate(-50%,-50%);
-	top:50%;
-	left:50%;
-}
 
 </style>
 </head>
 <body>
 	<header>
-
+		<div style="border: none;color: rgb(192, 2, 33);font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Created by<a href="https://github.com/vinayak-tripathi" style="background-color: transparent;color: tomato;font-size:25px;box-shadow:none ;" target="_blank"><i class="fa fa-github"></i>VT</a></div>
 	</header>
 	<div class='links'>
 		<ul style="list-style-type:none;">
@@ -68,28 +38,28 @@
 	<form class="keypad" name="form"><input name="display" class="text">
 	<table>
 		<tr>
-			<td><input class="button" type=button value="C" onClick="c()">
-			<td><input class="button" type=button value="<" onClick="back()">
-			<td><input class="button" type=button value="/" onClick="insert('/')">
-			<td><input class="button" type=button value="X" onClick="insert('*')">
+			<td><input class="button" type=button value="C" onClick="c()" style='background-color: red;'>
+			<td><input class="button" type=button value="<" onClick="back()" style='background-color: rgb(248, 62, 16);'>
+			<td><input class="button" type=button value="/" onClick="insert('/')" style='background-color:rgb(255, 94, 0);'>
+			<td><input class="button" type=button value="X" onClick="insert('*')" style='background-color: rgb(250, 225, 2);color:darkred'>
 		</tr>
 		<tr>
 			<td><input class="button" type=button value="7" onClick="insert(7)">
 			<td><input class="button" type=button value="8" onClick="insert(8)">
 			<td><input class="button" type=button value="9" onClick="insert(9)">
-			<td><input class="button" type=button value="-" onClick="insert('-')">
+			<td><input class="button" type=button value="-" onClick="insert('-')" style='background-color:rgb(238, 255, 0);color:darkred'>
 		</tr>
 		<tr>
 			<td><input class="button" type=button value="4" onClick="insert(4)">
 			<td><input class="button" type=button value="5" onClick="insert(5)">
 			<td><input class="button" type=button value="6" onClick="insert(6)">
-			<td><input class="button" type=button value="+" onClick="insert('+')">
+			<td><input class="button" type=button value="+" onClick="insert('+')" style='background-color:rgb(159, 255, 4);color:darkred'>
 		</tr>
 		<tr>
 			<td><input class="button" type=button value="1" onClick="insert(1)">
 			<td><input class="button" type=button value="2" onClick="insert(2)">
 			<td><input class="button" type=button value="3" onClick="insert(3)">
-			<td rowspan=2><input class="button" type=button value="=" onClick="equal()" style="height:106px;">
+			<td rowspan=2><input class="button" type=button value="=" onClick="equal()" style="height:106px;background-color:green;" >
 		</tr>
 		<tr>
 			<td colspan=2><input class="button" type=button value="0" onClick="insert(0)" style="width:106px;">
@@ -97,8 +67,8 @@
 		</tr>
 	</table></form>
 	</div>
-	<footer>
+	<!-- <footer>
 		<div style="border: none;color: rgb(192, 2, 33);font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Created by<a href="https://github.com/vinayak-tripathi" style="background-color: transparent;color: tomato;font-size:25px" target="_blank"><i class="fa fa-github"></i>VT</a></div>
-	</footer>
+	</footer> -->
 </body>
 </html>
