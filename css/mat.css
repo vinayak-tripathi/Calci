@@ -7,8 +7,8 @@ body{
 }
 header{
     background:blueviolet;
-    height:80px;
-    min-width:1000px;
+    height:80px;width: 1397px;
+    text-align:left;
 }
 h1{
     font-family: Arial, Helvetica, sans-serif ;
@@ -30,10 +30,11 @@ div{
     background: rgb(245, 209, 137);
     /* float: left; */
     /* justify-content: space-evenly; */
-    height: auto;
+    height: 550px;
     border-radius: 0px;
     /* text-align: center; */
     padding-right: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .o-mat1,.o-mat2,.op,.eq,.res{
     margin:auto 0px;
@@ -50,7 +51,7 @@ a{
     border-radius: 5px;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 a:hover{
     background-color: rgb(61, 56, 55);
@@ -61,19 +62,17 @@ a:hover{
     width:300px;
     box-shadow: none;
     color: indigo;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .main{
     position: absolute;
-    margin: 0px 20px 60px 20px;
-    width: 1080px;
-    height:500px;
+    margin: 0px 20px;
+    width: 79%;
+    height:550px;
     text-align: center;
     border:none;
     overflow: auto;
     border-radius: 0px;
     background: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .modal {
     display: none; /* Hidden by default */
@@ -174,3 +173,18 @@ footer {
     height:50px;
     text-align: center;
  }
+ /*calculator*/
+.text{
+	width:250px;
+	height: 50px;
+	font-size: 25px;
+	border: solid 2px black;
+    text-align: center;
+    border-radius: 5px;
+}
+.keypad{
+	position:absolute;
+	transform:translate(-50%,-50%);
+	top:50%;
+	left:50%;
+}
