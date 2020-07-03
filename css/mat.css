@@ -8,6 +8,7 @@ body{
 header{
     background:blueviolet;
     height:80px;
+    width:100%;
 }
 h1{
     font-family: Arial, Helvetica, sans-serif ;
