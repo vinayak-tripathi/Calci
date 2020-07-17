@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+	<title>Calculator</title>
+	<link rel="icon" href="css/vt.png">
+	<link rel="stylesheet" href="css/mat.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='Javascript/s-calculator.js'></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.8/brython.js" integrity="sha256-rA89wPrTJJQFWJaZveKW8jpdmC3t5F9rRkPyBjz8G04=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.8/brython_stdlib.js" integrity="sha256-Gnrw9tIjrsXcZSCh/wos5Jrpn0bNVNFJuNJI9d71TDs=" crossorigin="anonymous"></script>
+
+     -->
+	<style>
+		.button{
+			width:50px;
+			height:50px;
+			font-size:25px;
+			margin:2px;
+			cursor:pointer;
+			color:white;
+			background:#1a5d7eb9;
+			border:none;
+			text-align: center;
+		}
+		.buttons{
+			width:80px;
+			height:50px;
+			font-size:25px;
+			margin:2px;
+			cursor:pointer;
+			color: azure;
+			background: #1a317eb9;
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2),0 3px 10px 0 rgba(0,0,0,0.19);
+			border:none;
+    		border-radius: 10px
+		}
+	</style>
+</head>
+<body onload="alert('This site is under development\nSome of the functions may not work properly or not at all')">
+    <header>
+		<header>
+			<div style="border: none;color: rgb(255, 0, 0);font-family:cursive;
+						font-size: 20px;margin: 0px;background:white;border: none;border-radius: 0;padding: 13px 53px;">
+				Created by
+				<a href="https://github.com/vinayak-tripathi" style="background-color: transparent;color: rgb(252, 86, 57);font-size:25px;box-shadow:none ;" target="_blank">
+				<i class="fa fa-github">VT</i>
+				</a></div>
+		</header>
+	<div class='links'>
+		<ul style="list-style-type:none;">
+			<li><a href="mat-mul.html">Matrix Calculator</a></li>
+			<li><a href="calculator.html">Simple Calculator</a></li>
+			<li><a href="s-calculator.html" class="active">Scientific Calculator</a></li>
+            <li><a href="p-calculator.html">Programmer Calculator</a></li>
+            <li><a href="e-caluclator.html">Equation Solver</a></li>
+		</ul>
+	</div>
+	<div class='main'>
+		<form class="keypad" name="form" style="background-color: rgba(192, 192, 192, 0.562);border-radius: 10px;">
+			
+			<input type="text" name="display" class="text" style="width:550px;background-color: white;" disabled contenteditable=false >
+			<input type="text" name="hide" class="hidden" style="display: none;">
+			<table style="background-color: rgba(192, 192, 192, 0.658);border-radius: 10px;">
+				<tr>
+					<td><input class="button" type=button value="C" onClick="c()" style='background-color: red;'>
+					<td><input class="button" type=button value="⌫" onClick="back()" style='background-color: rgb(248, 62, 16);'>
+					<td><input class="button" type=button value="/" onClick="insert('/')" style='background-color:rgb(255, 174, 0);'>
+					<td><input class="button" type=button value="*" onClick="insert('*')" style='background-color: rgb(250, 233, 2);color:darkred'>
+					<td><button class="buttons" type=button onClick="sqrt()">&Sqrt;</button></td>
+					<td><button class="buttons" type=button onClick="cubrt()">&#8731;</button></td>
+					<td><button class="buttons" type="button" onClick="pow()">x<sup>y</sup></button></td>
+				</tr>
+				<tr>
+					<td><input class="button" type=button value="7" onClick="insert(7)">
+					<td><input class="button" type=button value="8" onClick="insert(8)">
+					<td><input class="button" type=button value="9" onClick="insert(9)">
+					<td><input class="button" type=button value="-" onClick="insert('-')" style='background-color:rgb(208, 255, 0);color:darkred'>
+					<td><button class="buttons" type=button onClick="sq()">x&sup2;</button></td>
+					<td><button class="buttons" type=button onClick="cu()">x&sup3;</button></td>
+					<td><button class="buttons" type="button" onClick="e()"><i>e<sup>x</sup></i></button></td>
+				</tr>
+				<tr>
+					<td><input class="button" type=button value="4" onClick="insert(4)">
+					<td><input class="button" type=button value="5" onClick="insert(5)">
+					<td><input class="button" type=button value="6" onClick="insert(6)">
+					<td><input class="button" type=button value="+" onClick="insert('+')" style='background-color:rgb(33, 255, 4);color:darkred'>
+					<td><button class="buttons" type=button onClick="sin()">sin</button></td>
+					<td><button class="buttons" type=button onClick="asin()">sin<sup>-1</sup></button></td>
+					<td><button class="buttons" type="button" onClick="ln()"><i>ln()</i></button></td>
+				</tr>
+				<tr>
+					<td><input class="button" type=button value="1" onClick="insert(1)">
+					<td><input class="button" type=button value="2" onClick="insert(2)">
+					<td><input class="button" type=button value="3" onClick="insert(3)">
+					<td rowspan=2><input class="button" type=button value="=" onClick="equal()" style="height:112px;background-color:green;" >
+					<td><button class="buttons" type=button onClick="cos()">cos</button></td>
+					<td><button class="buttons" type=button onClick="acos()">cos<sup>-1</sup></button></td>
+					<td><button class="buttons" type="button" onClick="log()"><i>log()</i></button></td>
+				</tr>
+				<tr>
+					<td><input class="button" type=button value="." onClick="insert('.')">
+					<td><input class="button" type=button value="0" onClick="insert(0)">
+					<td><button class="button" type="button" onClick="pi()">&pi;</button></td>
+					<td><button class="buttons" type=button onClick="insert('*')">tan</button></td>
+					<td><button class="buttons" type=button onClick="insert('*')">tan<sup>-1</sup></button></td>
+					<td><button class="buttons" type="button" style="width:35px" onClick="insert('(')">(</button>
+						<button class="buttons" type="button" style="width:35px" onClick="insert(')')">)</button></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="ang" id="rad" checked>Deg</td>
+					<td><input type="radio" name="ang" id="rad">Rad</td>
+					<td colspan="2"><button class="button" type=button style="width:115px" onClick="e()"><i>e</i></button></td>
+					<td><button class="buttons" type=button onClick="fac()"><i>x!</i></button></td>
+					<td><button class="buttons" type=button>&larr;</button></td>
+					<td><button class="buttons" type=button>&rarr;</button></td>
+				</tr>
+			</table></form>
+    </div>
+    <!-- <footer>
+		<div style="border: none;color: rgb(192, 2, 33);font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Created by<a href="https://github.com/vinayak-tripathi" style="background-color: transparent;color: tomato;font-size:25px" target="_blank"><i class="fa fa-github"></i>VT</a></div>
+	</footer> -->
+</body>
+</html>
